@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
           remoteA : remoteA_URL,
           remoteB : remoteB_URL,
         },
-        shared: ["react", "react-dom", "tailwindcss", "react-router-dom"]
+        shared: ["react", "react-dom", "tailwindcss"]
       })
     ],
     css: {
