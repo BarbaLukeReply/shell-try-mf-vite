@@ -27,8 +27,8 @@ function App() {
     <Router>
       <Layout>
         <Routes>
-          <Route path="/page1" element={<Page1 />} />
-          <Route path="/page2" element={<Page2 />} />
+          <Route path="/page1/*" element={<Page1 />} />
+          <Route path="/page2/*" element={<Page2 />} />
         </Routes>
       </Layout>
     </Router>

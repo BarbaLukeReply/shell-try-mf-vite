@@ -1,7 +1,16 @@
-import React, { useState } from 'react';
-const RemotePage1 = React.lazy(() => import("remoteA/App").catch(() => ({ default: () => <h1>RemoteA is not reachable</h1> })));
+import React, { useState } from "react";
 
-function Page1 () {
+interface RemotePage1Props {
+  color: boolean;
+}
+
+const RemotePage1 = React.lazy(() =>
+  import("remoteA/App").catch(() => ({
+    default: () => <h1>RemoteA is not reachable</h1>,
+  }))
+) as React.ComponentType<RemotePage1Props>;
+
+function Page1() {
   const [toggleState, setToggleState] = useState(false);
 
   const handleToggle = () => {
@@ -14,10 +23,18 @@ function Page1 () {
         <RemotePage1 color={toggleState} />
       </div>
       <div className="flex flex-col items-center">
-        <button onClick={handleToggle} className={`px-4 py-2 bg-${toggleState ? 'yellow' : 'green'}-500 text-white rounded`}>
-          {'Set color to: ' + (toggleState ? 'Yellow' : 'Green')}
+        <button
+          onClick={handleToggle}
+          className={`px-4 py-2 bg-${
+            toggleState ? "yellow" : "green"
+          }-500 text-white rounded`}
+        >
+          {"Set color to: " + (toggleState ? "Yellow" : "Green")}
         </button>
-        <p className="mt-2 text-center">* This button demonstrates how the remote component responds to prop changes from the shell component.</p>
+        <p className="mt-2 text-center">
+          * This button demonstrates how the remote component responds to prop
+          changes from the shell component.
+        </p>
       </div>
     </React.Suspense>
   );
