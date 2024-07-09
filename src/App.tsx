@@ -9,13 +9,18 @@ import { AlertsProvider } from "./context/alerts/alert-context";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col h-screen w-screen">
+    <div className="flex flex-col h-screen w-screen bg-[#e0facb]">
       <div className="flex">
         <Header />
       </div>
       <div className="flex flex-grow">
-        <Sidebar />
+        <div className="hidden md:flex">
+          <Sidebar />
+        </div>
         <div className="flex-grow p-4 h-full">{children}</div>
+      </div>
+      <div className="flex">
+        sono il footer
       </div>
     </div>
   );
