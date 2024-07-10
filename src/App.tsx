@@ -6,6 +6,7 @@ import Sidebar from "./components/local/SideBar";
 import Page1 from "./components/remote/Page1";
 import Page2 from "./components/remote/Page2";
 import { AlertsProvider } from "./context/alerts/alert-context";
+import { NextUIProvider } from "@nextui-org/react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -19,25 +20,25 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </div>
         <div className="flex-grow p-4 h-full">{children}</div>
       </div>
-      <div className="flex">
-        sono il footer
-      </div>
+      <div className="flex">sono il footer</div>
     </div>
   );
 };
 
 function App() {
   return (
-    <AlertsProvider>
-      <Router>
-        <Layout>
-          <Routes>
-            <Route path="/page1/*" element={<Page1 />} />
-            <Route path="/page2/*" element={<Page2 />} />
-          </Routes>
-        </Layout>
-      </Router>
-    </AlertsProvider>
+    <NextUIProvider>
+      <AlertsProvider>
+        <Router>
+          <Layout>
+            <Routes>
+              <Route path="/page1/*" element={<Page1 />} />
+              <Route path="/page2/*" element={<Page2 />} />
+            </Routes>
+          </Layout>
+        </Router>
+      </AlertsProvider>
+    </NextUIProvider>
   );
 }
 
